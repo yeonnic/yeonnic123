@@ -40,7 +40,8 @@ def insert_booth_code(message):
         button_1=types.KeyboardButton(u'확인')
         button_2=types.KeyboardButton(u'다시입력')
         key.add(button_1,button_2)
-        db=MySQLdb.connect('db address','id','password','select databases',use_unicode=True,charset="utf8") cursor=db.cursor()
+        db=MySQLdb.connect('db address','id','password','select databases',use_unicode=True,charset="utf8")
+        cursor=db.cursor()
         cursor.execute("set names utf8")
 
         cursor.execute(u"select name from booth where no=%d" %(code))
