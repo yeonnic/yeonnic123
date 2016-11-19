@@ -40,7 +40,7 @@ def insert_booth_code(message):
         button_1=types.KeyboardButton(u'확인')
         button_2=types.KeyboardButton(u'다시입력')
         key.add(button_1,button_2)
-        db=MySQLdb.connect('115.40.127.208','root','hacker123','jeileconomy',use_unicode=True,charset="utf8") cursor=db.cursor()
+        db=MySQLdb.connect('db address','id','password','select databases',use_unicode=True,charset="utf8") cursor=db.cursor()
         cursor.execute("set names utf8")
 
         cursor.execute(u"select name from booth where no=%d" %(code))
@@ -113,7 +113,7 @@ def input_pwd(message):
     user=user_dict[chat_id]
     user.pwd=message.text
 
-    db=MySQLdb.connect('115.40.127.208','root','hacker123','jeileconomy',use_unicode=True,charset="utf8")
+    db=MySQLdb.connect('db address','id','password','select database',use_unicode=True,charset="utf8")
     cursor=db.cursor()
     cursor.execute("set names utf8")
 
@@ -137,7 +137,7 @@ def input_m_name(message):
     chat_id=message.chat.id
     user=user_dict[chat_id]
     
-    db=MySQLdb.connect('115.40.127.208','root','hacker123','jeileconomy',use_unicode=True,charset="utf8")
+    db=MySQLdb.connect('db address','id','password','select database',use_unicode=True,charset="utf8")
     cursor=db.cursor()
     cursor.execute("set names utf8")
     
@@ -233,7 +233,7 @@ def buy_handler(message):
         #잔액부족인지 체크
         if user.money-total_var>=0:
             #여기서부터 DB연동 후 기록 (제일귀찮...)
-            db=MySQLdb.connect('192.168.0.2','root','hacker123','jeileconomy',use_unicode=True,charset="utf8")
+            db=MySQLdb.connect('db address','id','password','select database',use_unicode=True,charset="utf8")
             cursor=db.cursor()
             cursor.execute("set names utf8")
 
